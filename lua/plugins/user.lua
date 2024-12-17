@@ -1,10 +1,6 @@
 --- @type LazySpec
 return {
   {
-    "olimorris/onedarkpro.nvim",
-    priority = 1000, -- Ensure it loads first
-  },
-  {
     "goolord/alpha-nvim",
     opts = function(_, opts)
       -- customize the dashboard header
@@ -68,11 +64,6 @@ return {
         }
       )
     end,
-  },
-  {
-    "ggandor/leap.nvim",
-    event = "BufRead",
-    config = function() require("leap").create_default_mappings() end,
   },
   {
     "lukas-reineke/indent-blankline.nvim",

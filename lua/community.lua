@@ -20,4 +20,5 @@ return {
   -- show indent rainbow
   { import = "astrocommunity.indent.indent-blankline-nvim" },
   { import = "astrocommunity.recipes.auto-session-restore" },
+  { import = "astrocommunity.motion.leap-nvim" },
 }
