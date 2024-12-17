@@ -1,21 +1,6 @@
 --- @type LazySpec
 return {
   {
-    "goolord/alpha-nvim",
-    opts = function(_, opts)
-      -- customize the dashboard header
-      opts.section.header.val = {
-        "██╗░░██╗░█████╗░██╗░░░██╗░█████╗░███████╗███╗░░░███╗",
-        "██║░░██║██╔══██╗██║░░░██║██╔══██╗██╔════╝████╗░████║",
-        "███████║███████║╚██╗░██╔╝███████║█████╗░░██╔████╔██║",
-        "██╔══██║██╔══██║░╚████╔╝░██╔══██║██╔══╝░░██║╚██╔╝██║",
-        "██║░░██║██║░░██║░░╚██╔╝░░██║░░██║███████╗██║░╚═╝░██║",
-        "╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚═╝░░░░░╚═╝",
-      }
-      return opts
-    end,
-  },
-  {
     "gelguy/wilder.nvim",
     event = "VeryLazy",
     config = function()
@@ -69,20 +54,20 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     config = function() require("ibl").setup() end,
   },
-  {
-    "zbirenbaum/copilot.lua",
-    opts = {
-      suggestion = {
-        auto_trigger = true,
-        debounce = 50,
-        keymap = {
-          accept = "<Tab>", -- Gán phím Tab để chấp nhận gợi ý
-          next = "<M-]>", -- Alt + ]
-          dismiss = "<C-]>", -- Ctrl + ]
-        },
-      },
-    },
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   opts = {
+  --     suggestion = {
+  --       auto_trigger = true,
+  --       debounce = 50,
+  --       keymap = {
+  --         accept = "<Tab>", -- Gán phím Tab để chấp nhận gợi ý
+  --         next = "<M-]>", -- Alt + ]
+  --         dismiss = "<C-]>", -- Ctrl + ]
+  --       },
+  --     },
+  --   },
+  -- },
 }
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder
