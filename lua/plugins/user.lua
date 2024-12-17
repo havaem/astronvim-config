@@ -19,6 +19,65 @@ return {
       return opts
     end,
   },
+  {
+    "gelguy/wilder.nvim",
+    event = "VeryLazy",
+    config = function()
+      local wilder = require "wilder"
+      wilder.setup { modes = { ":", "/", "?" } }
+
+      local highlighters = {
+        wilder.pcre2_highlighter(),
+        wilder.lua_fzy_highlighter(),
+      }
+
+      local popupmenu_renderer = wilder.popupmenu_renderer(wilder.popupmenu_border_theme {
+        border = "rounded",
+        empty_message = wilder.popupmenu_empty_message_with_spinner(),
+        highlighter = highlighters,
+        highlights = {
+          accent = wilder.make_hl("WilderAccent", "Pmenu", { { a = 1 }, { a = 1 }, { foreground = "#f4468f" } }),
+        },
+        left = {
+          " ",
+          wilder.popupmenu_devicons(),
+          wilder.popupmenu_buffer_flags {
+            flags = " a + ",
+            icons = { ["+"] = "", a = "", h = "" },
+          },
+        },
+        right = {
+          " ",
+          wilder.popupmenu_scrollbar(),
+        },
+      })
+
+      local wildmenu_renderer = wilder.wildmenu_renderer {
+        highlighter = highlighters,
+        separator = " · ",
+        left = { " ", wilder.wildmenu_spinner(), " " },
+        right = { " ", wilder.wildmenu_index() },
+      }
+
+      wilder.set_option(
+        "renderer",
+        wilder.renderer_mux {
+          [":"] = popupmenu_renderer,
+          ["/"] = wildmenu_renderer,
+          substitute = wildmenu_renderer,
+        }
+      )
+    end,
+  },
+  {
+    "ggandor/leap.nvim",
+    event = "BufRead",
+    config = function() require("leap").create_default_mappings() end,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function() require("ibl").setup() end,
+  },
 }
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder
@@ -46,23 +105,7 @@ return {
 --     config = function(plugin, opts)
 --       require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
 --       -- add more custom luasnip configuration such as filetype extend or custom snippets
---       local luasnip = require "luasnip"
---       luasnip.filetype_extend("javascript", { "javascriptreact" })
---     end,
---   },
---
---   {
---     "windwp/nvim-autopairs",
---     config = function(plugin, opts)
---       require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call
---       -- add more custom autopairs configuration such as custom rules
---       local npairs = require "nvim-autopairs"
---       local Rule = require "nvim-autopairs.rule"
---       local cond = require "nvim-autopairs.conds"
---       npairs.add_rules(
---         {
---           Rule("$", "$", { "tex", "latex" })
---             -- don't add a pair if the next character is %
+--       local luasnip = require "luasnip" luasnip.filetype_extend("javascript", { "javascriptreact" }) end, }, { "windwp/nvim-autopairs", config = function(plugin, opts) require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call -- add more custom autopairs configuration such as custom rules local npairs = require "nvim-autopairs" local Rule = require "nvim-autopairs.rule" local cond = require "nvim-autopairs.conds" npairs.add_rules( { Rule("$", "$", { "tex", "latex" }) -- don't add a pair if the next character is %
 --             :with_pair(cond.not_after_regex "%%")
 --             -- don't add a pair if  the previous character is xxx
 --             :with_pair(

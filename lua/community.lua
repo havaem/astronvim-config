@@ -13,4 +13,11 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.completion.copilot-lua" },
+  -- show blame on code
+  { import = "astrocommunity.git.git-blame-nvim" },
+  -- move code with alt h - j - k - l
+  { import = "astrocommunity.editing-support.vim-move" },
+  -- show indent rainbow
+  { import = "astrocommunity.indent.indent-blankline-nvim" },
+  { import = "astrocommunity.recipes.auto-session-restore" },
 }
