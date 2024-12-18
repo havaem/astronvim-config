@@ -17,3 +17,5 @@ end
 
 require "lazy_setup"
 require "polish"
+
+vim.keymap.set({ "n", "i" }, "<C-t>", "<C-o>", { remap = true })

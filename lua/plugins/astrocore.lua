@@ -45,18 +45,45 @@ return {
         -- second key is the lefthand side of the map
 
         -- navigate buffer tabs
-        ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+        ["<Tab>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        ["<S-Tab>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+
+        ["<A-1>"] = { function() require("astrocore.buffer").nav_to(1) end, desc = "Switch to tab 1" },
+        ["<A-2>"] = { function() require("astrocore.buffer").nav_to(2) end, desc = "Switch to tab 2" },
+        ["<A-3>"] = { function() require("astrocore.buffer").nav_to(3) end, desc = "Switch to tab 3" },
+        ["<A-4>"] = { function() require("astrocore.buffer").nav_to(4) end, desc = "Switch to tab 4" },
+        ["<A-5>"] = { function() require("astrocore.buffer").nav_to(5) end, desc = "Switch to tab 5" },
+        ["<A-6>"] = { function() require("astrocore.buffer").nav_to(6) end, desc = "Switch to tab 6" },
+        ["<A-7>"] = { function() require("astrocore.buffer").nav_to(7) end, desc = "Switch to tab 7" },
+        ["<A-8>"] = { function() require("astrocore.buffer").nav_to(8) end, desc = "Switch to tab 8" },
+        ["<A-9>"] = { function() require("astrocore.buffer").nav_to(9) end, desc = "Switch to tab 9" },
+        ["<A-0>"] = {
+          function() require("astrocore.buffer").nav_to(#vim.api.nvim_list_bufs()) end,
+          desc = "Switch to last buffer",
+        },
+        ["<C-w>"] = {
+          function() require("astrocore.buffer").close() end,
+          desc = "Close buffer",
+          nowait = true,
+          noremap = true,
+        },
+        -- rename
+        ["<F2>"] = {
+          function() vim.lsp.buf.rename() end,
+          desc = "Rename buffer",
+          nowait = true,
+          noremap = true,
+        },
 
         -- mappings seen under group name "Buffer"
-        ["<Leader>bd"] = {
-          function()
-            require("astroui.status.heirline").buffer_picker(
-              function(bufnr) require("astrocore.buffer").close(bufnr) end
-            )
-          end,
-          desc = "Close buffer from tabline",
-        },
+        -- ["<Leader>bd"] = {
+        --   function()
+        --     require("astroui.status.heirline").buffer_picker(
+        --       function(bufnr) require("astrocore.buffer").close(bufnr) end
+        --     )
+        --   end,
+        --   desc = "Close buffer from tabline",
+        -- },
 
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus

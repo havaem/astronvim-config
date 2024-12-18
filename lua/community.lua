@@ -21,6 +21,8 @@ return {
   -- show indent rainbow
   { import = "astrocommunity.indent.indent-blankline-nvim" },
 
+  { import = "astrocommunity.recipes.heirline-vscode-winbar" },
+  { import = "astrocommunity.recipes.vscode-icons" },
   { import = "astrocommunity.recipes.auto-session-restore" },
 
   { import = "astrocommunity.motion.leap-nvim" },
