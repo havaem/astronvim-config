@@ -13,11 +13,18 @@ return {
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.json" },
 
-  { import = "astrocommunity.completion.copilot-cmp" },
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
   -- show blame on code
   { import = "astrocommunity.git.git-blame-nvim" },
   -- move code with alt h - j - k - l
   { import = "astrocommunity.editing-support.vim-move" },
+  -- show the history of the file
+  { import = "astrocommunity.editing-support.undotree" },
+  { import = "astrocommunity.editing-support.vim-visual-multi" },
+  { import = "astrocommunity.editing-support.treesj" },
+  -- smart select like alt+shift+arrow in vscode
+  { import = "astrocommunity.editing-support.wildfire-nvim" },
+
   -- show indent rainbow
   { import = "astrocommunity.indent.indent-blankline-nvim" },
 
@@ -25,5 +32,5 @@ return {
   { import = "astrocommunity.recipes.vscode-icons" },
   { import = "astrocommunity.recipes.auto-session-restore" },
 
-  { import = "astrocommunity.motion.leap-nvim" },
+  { import = "astrocommunity.motion.flash-nvim" },
 }
