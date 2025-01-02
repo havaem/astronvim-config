@@ -43,9 +43,6 @@ return {
       -- first key is the mode
       n = {
         -- navigate buffer tabs
-        ["<Tab>"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        ["<S-Tab>"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
-
         ["<A-1>"] = { function() require("astrocore.buffer").nav_to(1) end, desc = "Switch to tab 1" },
         ["<A-2>"] = { function() require("astrocore.buffer").nav_to(2) end, desc = "Switch to tab 2" },
         ["<A-3>"] = { function() require("astrocore.buffer").nav_to(3) end, desc = "Switch to tab 3" },

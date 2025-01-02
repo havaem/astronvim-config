@@ -1,8 +1,8 @@
 vim.keymap.set({ "n", "i" }, "<C-t>", "<C-o>", { remap = true })
 
 -- fast move
-vim.keymap.set("n", "<S-j>", ":+5<cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "<S-k>", ":-5<cr>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<S-j>", ":+5<cr>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<S-k>", ":-4<cr>", { noremap = true, silent = true })
 
 -- make nvim remove not cut
 vim.keymap.set("v", "p", '"_dP')
