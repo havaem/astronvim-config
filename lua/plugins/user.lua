@@ -1,5 +1,9 @@
 --- @type LazySpec
 return {
+  -- {
+  --   "akinsho/toggleterm.nvim",
+  --   enabled = false
+  -- },
   {
     "gelguy/wilder.nvim",
     event = "VeryLazy",
@@ -23,8 +27,8 @@ return {
     opts = {
       suggestion = {
         keymap = {
-          accept = "<Tab>", -- Gán phím Tab để chấp nhận gợi ý
-          next = "<M-]>", -- Alt + ]
+          accept = "<Tab>",  -- Gán phím Tab để chấp nhận gợi ý
+          next = "<M-]>",    -- Alt + ]
           dismiss = "<C-]>", -- Ctrl + ]
         },
       },

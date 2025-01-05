@@ -13,7 +13,6 @@ return {
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.json" },
 
-  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.completion.copilot-lua" },
   -- show blame on code
   { import = "astrocommunity.git.git-blame-nvim" },

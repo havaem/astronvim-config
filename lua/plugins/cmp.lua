@@ -3,8 +3,8 @@ return { -- override nvim-cmp plugin
   opts = function(_, opts)
     local cmp = require "cmp"
     opts.sources = cmp.config.sources {
-      { name = "luasnip" },
       { name = "nvim_lsp" },
+      { name = "luasnip" },
       { name = "buffer" },
       { name = "path" },
     }
