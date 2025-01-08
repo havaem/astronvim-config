@@ -1,22 +1,120 @@
-vim.keymap.set({ "n", "i" }, "<C-t>", "<C-o>", { remap = true })
+local map = vim.keymap.set
+local merge = require("utils").merge
 
--- fast move
--- vim.keymap.set("n", "<S-j>", ":+5<cr>", { noremap = true, silent = true })
--- vim.keymap.set("n", "<S-k>", ":-4<cr>", { noremap = true, silent = true })
+local defaultOptions = { noremap = true, silent = true }
+-- editor
+map(
+  "n",
+  "<Leader>r",
+  function() require("astrocore").reload() end,
+  merge(defaultOptions, { desc = "Reload AstroCore" })
+)
 
--- make nvim remove not cut
-vim.keymap.set("v", "p", '"_dP')
-vim.keymap.set("n", "d", '"_d', { noremap = true })
-vim.keymap.set("n", "D", '"_D', { noremap = true })
-vim.keymap.set("n", "x", '"_x', { noremap = true })
-vim.keymap.set("n", "X", '"_X', { noremap = true })
-vim.keymap.set("n", "c", '"_c', { noremap = true })
-vim.keymap.set("n", "C", '"_C', { noremap = true })
-vim.keymap.set("v", "d", '"_d', { noremap = true })
-vim.keymap.set("v", "x", '"_x', { noremap = true })
-vim.keymap.set("v", "c", '"_c', { noremap = true })
+-- buffer
+map({ "n", "i" }, "<C-t>", "<C-o>", { remap = true })
+map(
+  "n",
+  "<A-1>",
+  function() require("astrocore.buffer").nav_to(1) end,
+  merge(defaultOptions, { desc = "Switch to tab 9" })
+)
+map(
+  "n",
+  "<A-2>",
+  function() require("astrocore.buffer").nav_to(2) end,
+  merge(defaultOptions, { desc = "Switch to tab 9" })
+)
+map(
+  "n",
+  "<A-3>",
+  function() require("astrocore.buffer").nav_to(3) end,
+  merge(defaultOptions, { desc = "Switch to tab 9" })
+)
+map(
+  "n",
+  "<A-4>",
+  function() require("astrocore.buffer").nav_to(4) end,
+  merge(defaultOptions, { desc = "Switch to tab 9" })
+)
+map(
+  "n",
+  "<A-5>",
+  function() require("astrocore.buffer").nav_to(5) end,
+  merge(defaultOptions, { desc = "Switch to tab 9" })
+)
+map(
+  "n",
+  "<A-6>",
+  function() require("astrocore.buffer").nav_to(6) end,
+  merge(defaultOptions, { desc = "Switch to tab 9" })
+)
+map(
+  "n",
+  "<A-7>",
+  function() require("astrocore.buffer").nav_to(7) end,
+  merge(defaultOptions, { desc = "Switch to tab 9" })
+)
+map(
+  "n",
+  "<A-8>",
+  function() require("astrocore.buffer").nav_to(8) end,
+  merge(defaultOptions, { desc = "Switch to tab 9" })
+)
+map(
+  "n",
+  "<A-9>",
+  function() require("astrocore.buffer").nav_to(9) end,
+  merge(defaultOptions, { desc = "Switch to tab 9" })
+)
+map(
+  "n",
+  "<A-0>",
+  function() require("astrocore.buffer").nav_to(#vim.api.nvim_list_bufs()) end,
+  { desc = "Switch to last buffer" }
+)
+
+-- variable
+map("n", "<F2>", function() vim.lsp.buf.rename() end, merge(defaultOptions, { desc = "Rename a variable" }))
+
+-- remove not cut
+map("v", "p", '"_dP', defaultOptions)
+map("n", "d", '"_d', defaultOptions)
+map("n", "D", '"_D', defaultOptions)
+map("n", "x", '"_x', defaultOptions)
+map("n", "X", '"_X', defaultOptions)
+map("n", "c", '"_c', defaultOptions)
+map("n", "C", '"_C', defaultOptions)
+map("v", "d", '"_d', defaultOptions)
+map("v", "x", '"_x', defaultOptions)
+map("v", "c", '"_c', defaultOptions)
+
 -- copy at the first word
-vim.keymap.set("n", "vw", "bvw", { noremap = true })
-vim.keymap.set("n", "vW", "bvW", { noremap = true })
-vim.keymap.set("n", "ve", "bve", { noremap = true })
-vim.keymap.set("n", "vE", "bvE", { noremap = true })
+map("n", "vw", "bvw", defaultOptions)
+map("n", "vW", "bvW", defaultOptions)
+map("n", "ve", "bve", defaultOptions)
+map("n", "vE", "bvE", defaultOptions)
+
+-- motion
+map("n", "<Tab>", ":+5<cr>", merge(defaultOptions, { desc = "Move 5 lines down" }))
+map("n", "<S-Tab>", function()
+  local needMove = vim.fn.line "." - 5
+  if needMove < 1 then needMove = 1 end
+  vim.cmd(":" .. needMove)
+end, merge(defaultOptions, { desc = "Move 5 lines up" }))
+
+map("i", "<C-b>", "<ESC>^i", merge(defaultOptions, { desc = "Move to beginning of line" }))
+map("i", "<C-e>", "<End>", merge(defaultOptions, { desc = "Move to end of line" }))
+map("i", "<C-h>", "<Left>", merge(defaultOptions, { desc = "Move left" }))
+map("i", "<C-l>", "<Right>", merge(defaultOptions, { desc = "Move right" }))
+map("i", "<C-j>", "<Down>", merge(defaultOptions, { desc = "Move down" }))
+map("i", "<C-k>", "<Up>", merge(defaultOptions, { desc = "Move up" }))
+
+--terminal
+map("t", "jk", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
+map({ "n", "t" }, "<F8>", function()
+  local toggleterm = require "toggleterm.terminal"
+  -- length of terminal
+  local terminalList = toggleterm.get_all() or 0
+  local terminalCount = #terminalList + 1
+  vim.cmd(":" .. terminalCount .. "ToggleTerm")
+end, { remap = true, silent = true })

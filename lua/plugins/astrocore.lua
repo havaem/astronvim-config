@@ -40,52 +40,25 @@ return {
     -- Mappings can be configured through AstroCore as well.
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
-      -- first key is the mode
       n = {
-        -- navigate buffer tabs
-        ["<A-1>"] = { function() require("astrocore.buffer").nav_to(1) end, desc = "Switch to tab 1" },
-        ["<A-2>"] = { function() require("astrocore.buffer").nav_to(2) end, desc = "Switch to tab 2" },
-        ["<A-3>"] = { function() require("astrocore.buffer").nav_to(3) end, desc = "Switch to tab 3" },
-        ["<A-4>"] = { function() require("astrocore.buffer").nav_to(4) end, desc = "Switch to tab 4" },
-        ["<A-5>"] = { function() require("astrocore.buffer").nav_to(5) end, desc = "Switch to tab 5" },
-        ["<A-6>"] = { function() require("astrocore.buffer").nav_to(6) end, desc = "Switch to tab 6" },
-        ["<A-7>"] = { function() require("astrocore.buffer").nav_to(7) end, desc = "Switch to tab 7" },
-        ["<A-8>"] = { function() require("astrocore.buffer").nav_to(8) end, desc = "Switch to tab 8" },
-        ["<A-9>"] = { function() require("astrocore.buffer").nav_to(9) end, desc = "Switch to tab 9" },
-        ["<A-0>"] = {
-          function() require("astrocore.buffer").nav_to(#vim.api.nvim_list_bufs()) end,
-          desc = "Switch to last buffer",
-        },
-        ["<C-w>"] = {
-          function() require("astrocore.buffer").close() end,
-          desc = "Close buffer",
-          nowait = true,
-          noremap = true,
-        },
-        -- rename
-        ["<F2>"] = {
-          function() vim.lsp.buf.rename() end,
-          desc = "Rename buffer",
-          nowait = true,
-          noremap = true,
-        },
-
-        -- mappings seen under group name "Buffer"
-        -- ["<Leader>bd"] = {
-        --   function()
-        --     require("astroui.status.heirline").buffer_picker(
-        --       function(bufnr) require("astrocore.buffer").close(bufnr) end
-        --     )
-        --   end,
-        --   desc = "Close buffer from tabline",
-        -- },
-
-        -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- ["<Leader>b"] = { desc = "Buffers" },
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+      },
+    },
+    sessions = {
+      -- Configure auto saving
+      autosave = {
+        last = true, -- auto save last session
+        cwd = true, -- auto save session for each working directory
+      },
+      -- Patterns to ignore when saving sessions
+      ignore = {
+        dirs = {}, -- working directories to ignore sessions in
+        filetypes = { "gitcommit", "gitrebase" }, -- filetypes to ignore sessions
+        buftypes = {}, -- buffer types to ignore sessions
       },
     },
   },
