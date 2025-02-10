@@ -36,6 +36,7 @@ return {
   { import = "astrocommunity.recipes.auto-session-restore" },
 
   { import = "astrocommunity.motion.flash-nvim" },
+  { import = "astrocommunity.motion.mini-surround" },
 
   { import = "astrocommunity.utility.hover-nvim" },
   { import = "astrocommunity.workflow.precognition-nvim" },
