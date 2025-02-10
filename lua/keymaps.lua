@@ -110,7 +110,7 @@ map("i", "<C-j>", "<Down>", merge(defaultOptions, { desc = "Move down" }))
 map("i", "<C-k>", "<Up>", merge(defaultOptions, { desc = "Move up" }))
 
 --terminal
-map("t", "jk", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
+map("t", "<A-q>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 map({ "n", "t" }, "<F8>", function()
   local toggleterm = require "toggleterm.terminal"
   -- length of terminal

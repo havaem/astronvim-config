@@ -22,18 +22,18 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     config = function() require("ibl").setup() end,
   },
-  {
-    "zbirenbaum/copilot.lua",
-    opts = {
-      suggestion = {
-        keymap = {
-          accept = "<Tab>",  -- Gán phím Tab để chấp nhận gợi ý
-          next = "<M-]>",    -- Alt + ]
-          dismiss = "<C-]>", -- Ctrl + ]
-        },
-      },
-    },
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   opts = {
+  --     suggestion = {
+  --       keymap = {
+  --         accept = "<Tab>",  -- Gán phím Tab để chấp nhận gợi ý
+  --         next = "<M-]>",    -- Alt + ]
+  --         dismiss = "<C-]>", -- Ctrl + ]
+  --       },
+  --     },
+  --   },
+  -- },
 }
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder
