@@ -38,6 +38,6 @@ return {
   { import = "astrocommunity.motion.flash-nvim" },
 
   { import = "astrocommunity.utility.hover-nvim" },
-  { import = "astrocommunity.utility.noice-nvim" },
   { import = "astrocommunity.workflow.precognition-nvim" },
+  { import = "astrocommunity.git.diffview-nvim" },
 }
