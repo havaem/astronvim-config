@@ -41,4 +41,6 @@ return {
   { import = "astrocommunity.utility.hover-nvim" },
   { import = "astrocommunity.workflow.precognition-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
+
+  { import = "astrocommunity.recipes.vscode" },
 }

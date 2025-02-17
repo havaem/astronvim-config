@@ -95,12 +95,12 @@ map("n", "ve", "bve", defaultOptions)
 map("n", "vE", "bvE", defaultOptions)
 
 -- motion
-map("n", "<Tab>", ":+5<cr>", merge(defaultOptions, { desc = "Move 5 lines down" }))
+map("n", "<Tab>", ":+10<cr>", merge(defaultOptions, { desc = "Move 10 lines down" }))
 map("n", "<S-Tab>", function()
-  local needMove = vim.fn.line "." - 5
+  local needMove = vim.fn.line "." - 10
   if needMove < 1 then needMove = 1 end
   vim.cmd(":" .. needMove)
-end, merge(defaultOptions, { desc = "Move 5 lines up" }))
+end, merge(defaultOptions, { desc = "Move 10 lines up" }))
 
 map("i", "<C-b>", "<ESC>^i", merge(defaultOptions, { desc = "Move to beginning of line" }))
 map("i", "<C-e>", "<End>", merge(defaultOptions, { desc = "Move to end of line" }))
