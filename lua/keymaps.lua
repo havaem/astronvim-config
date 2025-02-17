@@ -102,7 +102,7 @@ map("n", "<S-Tab>", function()
   vim.cmd(":" .. needMove)
 end, merge(defaultOptions, { desc = "Move 10 lines up" }))
 
-map("i", "<C-b>", "<ESC>^i", merge(defaultOptions, { desc = "Move to beginning of line" }))
+map("i", "<C-b>", "<Home>", merge(defaultOptions, { desc = "Move to beginning of line" }))
 map("i", "<C-e>", "<End>", merge(defaultOptions, { desc = "Move to end of line" }))
 map("i", "<C-h>", "<Left>", merge(defaultOptions, { desc = "Move left" }))
 map("i", "<C-l>", "<Right>", merge(defaultOptions, { desc = "Move right" }))
@@ -117,4 +117,4 @@ map({ "n", "t" }, "<F8>", function()
   local terminalList = toggleterm.get_all() or 0
   local terminalCount = #terminalList + 1
   vim.cmd(":" .. terminalCount .. "ToggleTerm")
-end, { remap = true, silent = true })
+end, defaultOptions)
