@@ -37,10 +37,9 @@ return {
 
   { import = "astrocommunity.motion.flash-nvim" },
   { import = "astrocommunity.motion.mini-surround" },
-
+  -- mouse hover support
   { import = "astrocommunity.utility.hover-nvim" },
+  -- show suggest under the current line
   { import = "astrocommunity.workflow.precognition-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
-
-  { import = "astrocommunity.recipes.vscode" },
 }
